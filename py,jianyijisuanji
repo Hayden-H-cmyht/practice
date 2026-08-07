@@ -1,0 +1,27 @@
+print('====简易计算机====')
+while True:
+    a = float(input('请输入第一个数:'))
+    op = input('请输入运算符(+ - * /)')
+    b = float(input('请输入第二个数:'))
+    if op == '+':
+        result = a + b
+    elif op == '-':
+        result = a - b
+    elif op == '*':
+        result = a * b
+    elif op == '/':
+        if b == 0:
+            result = None
+        else:
+            result = a / b
+    else:
+        result = None
+    if result is None:
+        print('出错了！除数不能为0或运算符')
+    else:
+        print(f'{a}{op}{b}={result}')
+    choice = input('继续吗？（y继续/n结束）:').strip().lower()
+    if choice == 'n' or choice == 'no':
+        print('再见！')
+        break
+print('程序已结束')
