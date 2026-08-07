@@ -1,0 +1,51 @@
+#include <stdio.h>
+
+double calc(double a, double b, char op){
+    if(op == '+'){
+        return a + b;
+    }
+    if(op == '-'){
+        return a - b;
+    }
+    if(op == '*'){
+        return a * b;
+    }
+    if(op == '/'){
+        return a / b;
+    }
+    return 0;
+}
+
+int main(){
+    double a, b, result;
+    char op;
+
+    printf("====计算机====\n");
+
+    while(1){
+        printf("请输入第一个数字：");
+        scanf("%lf", &a);
+
+        printf("请输入运算符(+,-,*,/,q退出):");
+        scanf(" %c", &op);
+        if(op == 'q'){
+            printf("再见！\n");
+            break;
+        }
+
+        printf("请输入第二个数字：");
+        scanf("%lf", &b);
+
+        if(op == '/' && b == 0){
+            printf("出错了！除数不能为0\n");
+        }
+        else if(op != '+' && op != '-' && op != '*' && op != '/'){
+            printf("出错了！运算符无效\n");
+        }
+        else{
+            result = calc(a, b, op);
+            printf("%.2f %c %.2f = %.2f\n", a, op, b, result);
+        }
+    }
+    return 0;
+}
